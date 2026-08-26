@@ -22,27 +22,40 @@
         }
 
         .container {
+            width: 100%;
+            max-width: 1200px;
             background: white;
             border-radius: 12px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            width: 100%;
-            max-width: 600px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: #dbd8a2;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .content {
             padding: 40px;
         }
 
-        .logo {
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 28px;
-            font-weight: bold;
-            color: #dbd8a2;
-        }
-
-        .section {
+        .auth-section {
             display: none;
         }
 
-        .section.active {
+        .auth-section.active {
             display: block;
         }
 
@@ -50,35 +63,33 @@
             margin-bottom: 20px;
         }
 
-        label {
+        .form-group label {
             display: block;
             margin-bottom: 8px;
-            color: #333;
             font-weight: 500;
-            font-size: 14px;
+            color: #333;
         }
 
-        input, textarea {
+        .form-group input {
             width: 100%;
             padding: 12px;
             border: 1px solid #ddd;
             border-radius: 6px;
             font-size: 14px;
-            font-family: inherit;
             transition: border-color 0.3s;
         }
 
-        input:focus, textarea:focus {
+        .form-group input:focus {
             outline: none;
             border-color: #dbd8a2;
-            box-shadow: 0 0 0 3px rgba(219, 216, 162, 0.1);
+            box-shadow: 0 0 0 3px rgba(219, 216, 162, 0.2);
         }
 
         .button {
             width: 100%;
             padding: 12px;
             background: #dbd8a2;
-            color: #333;
+            color: #2c3e50;
             border: none;
             border-radius: 6px;
             font-size: 16px;
@@ -89,43 +100,49 @@
 
         .button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(219, 216, 162, 0.4);
+            box-shadow: 0 6px 20px rgba(219, 216, 162, 0.4);
         }
 
         .button:active {
             transform: translateY(0);
         }
 
-        .button.secondary {
+        .button-secondary {
             background: #f0f0f0;
             color: #333;
             margin-top: 10px;
         }
 
-        .button.secondary:hover {
+        .button-secondary:hover {
             background: #e0e0e0;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
         }
 
-        .link {
+        .toggle-text {
             text-align: center;
             margin-top: 20px;
-            font-size: 14px;
             color: #666;
         }
 
-        .link a {
+        .toggle-text a {
             color: #dbd8a2;
+            cursor: pointer;
             text-decoration: none;
             font-weight: 600;
-            cursor: pointer;
         }
 
-        .link a:hover {
+        .toggle-text a:hover {
             text-decoration: underline;
         }
 
-        .header {
+        .dashboard {
+            display: none;
+        }
+
+        .dashboard.active {
+            display: block;
+        }
+
+        .dashboard-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -134,339 +151,270 @@
             border-bottom: 2px solid #f0f0f0;
         }
 
-        .header h2 {
+        .dashboard-header h2 {
+            font-size: 24px;
             color: #333;
         }
 
+        .user-info {
+            text-align: right;
+        }
+
+        .user-info p {
+            color: #666;
+            margin-bottom: 10px;
+        }
+
         .logout-btn {
-            background: #ff6b6b;
             padding: 8px 16px;
-            font-size: 12px;
-            width: auto;
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
         }
 
         .logout-btn:hover {
             background: #ff5252;
         }
 
-        .dashboard-content {
-            display: grid;
-            gap: 30px;
-        }
-
-        .card {
-            background: #f9f9f9;
+        .section {
+            margin-bottom: 40px;
             padding: 20px;
+            background: #f9f9f9;
             border-radius: 8px;
-            border: 1px solid #e0e0e0;
-        }
-
-        .card h3 {
-            color: #333;
-            margin-bottom: 15px;
-        }
-
-        .result {
-            background: white;
             border-left: 4px solid #dbd8a2;
-            padding: 15px;
-            margin-top: 15px;
-            border-radius: 4px;
-            display: none;
         }
 
-        .result.show {
-            display: block;
+        .section h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #333;
         }
 
-        .result h4 {
-            color: #dbd8a2;
-            margin-bottom: 10px;
-        }
-
-        .result p {
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 8px;
-        }
-
-        .loading {
-            text-align: center;
-            color: #999;
-            font-style: italic;
-            display: none;
-        }
-
-        .loading.show {
-            display: block;
-        }
-
-        .error {
-            background: #ffebee;
-            color: #c62828;
-            padding: 12px;
-            border-radius: 6px;
-            margin-bottom: 15px;
-            display: none;
-        }
-
-        .error.show {
-            display: block;
-        }
-
-        .success {
-            background: #e8f5e9;
-            color: #2e7d32;
-            padding: 12px;
-            border-radius: 6px;
-            margin-bottom: 15px;
-            display: none;
-        }
-
-        .success.show {
-            display: block;
-        }
-
-        .stats {
+        .section-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-bottom: 20px;
+            gap: 20px;
         }
 
-        .stat {
-            background: white;
-            padding: 15px;
-            border-radius: 8px;
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 24px;
-            font-weight: bold;
-            color: #dbd8a2;
-        }
-
-        .stat-label {
-            font-size: 12px;
-            color: #999;
-            margin-top: 5px;
-        }
-
-        .image-preview {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin-top: 10px;
-        }
-
-        textarea {
-            resize: vertical;
-            min-height: 80px;
-        }
-
-        @media (max-width: 600px) {
-            .container {
-                padding: 25px;
-            }
-
-            .stats {
+        @media (max-width: 768px) {
+            .section-grid {
                 grid-template-columns: 1fr;
             }
 
-            .header {
+            .dashboard-header {
                 flex-direction: column;
-                gap: 15px;
-                text-align: center;
+                align-items: flex-start;
             }
 
-            .logout-btn {
-                width: 100%;
+            .user-info {
+                text-align: left;
+                margin-top: 15px;
             }
+        }
+
+        .roteiro-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .roteiro-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+
+        .roteiro-card h4 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .roteiro-card p {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .message {
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .message.active {
+            display: block;
+        }
+
+        .message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .loading.active {
+            display: block;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #dbd8a2;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .color-accent {
+            color: #dbd8a2;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Login Section -->
-        <div id="login" class="section active">
-            <div class="logo">🎬 CriarIA</div>
-            <h2 style="text-align: center; color: #333; margin-bottom: 30px;">Entrar</h2>
-
-            <div class="error" id="loginError"></div>
-
-            <div class="form-group">
-                <label>Email</label>
-                <input type="email" id="loginEmail" placeholder="seu@email.com">
-            </div>
-
-            <div class="form-group">
-                <label>Senha</label>
-                <input type="password" id="loginPassword" placeholder="Sua senha">
-            </div>
-
-            <button class="button" onclick="handleLogin()">Entrar</button>
-
-            <div class="link">
-                Não tem conta? <a onclick="switchSection('signup')">Criar agora</a>
-            </div>
+        <div class="header">
+            <h1>🎬 CriarIA</h1>
+            <p>Sua plataforma de IA para criar roteiros Instagram</p>
         </div>
 
-        <!-- Signup Section -->
-        <div id="signup" class="section">
-            <div class="logo">🎬 CriarIA</div>
-            <h2 style="text-align: center; color: #333; margin-bottom: 30px;">Criar Conta</h2>
-
-            <div class="error" id="signupError"></div>
-
-            <div class="form-group">
-                <label>Nome</label>
-                <input type="text" id="signupName" placeholder="Seu nome completo">
-            </div>
-
-            <div class="form-group">
-                <label>Email</label>
-                <input type="email" id="signupEmail" placeholder="seu@email.com">
-            </div>
-
-            <div class="form-group">
-                <label>Senha</label>
-                <input type="password" id="signupPassword" placeholder="Crie uma senha">
-            </div>
-
-            <button class="button" onclick="handleSignup()">Criar Conta</button>
-
-            <div class="link">
-                Já tem conta? <a onclick="switchSection('login')">Entrar</a>
-            </div>
-        </div>
-
-        <!-- Dashboard Section -->
-        <div id="dashboard" class="section">
-            <div class="header">
-                <h2>Dashboard</h2>
-                <button class="button logout-btn" onclick="handleLogout()">Sair</button>
-            </div>
-
-            <div class="error" id="dashboardError"></div>
-            <div class="success" id="dashboardSuccess"></div>
-
-            <div class="stats" id="stats">
-                <div class="stat">
-                    <div class="stat-number" id="roteirosCount">0</div>
-                    <div class="stat-label">Roteiros Criados</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number" id="userPlan">-</div>
-                    <div class="stat-label">Seu Plano</div>
-                </div>
-            </div>
-
-            <div class="dashboard-content">
-                <div class="card">
-                    <h3>Gerar Novo Roteiro</h3>
+        <div class="content">
+            <!-- Auth Section -->
+            <div id="authSection" class="auth-section active">
+                <!-- Login Form -->
+                <div id="loginForm" class="form-container">
+                    <h2 style="margin-bottom: 30px; color: #333;">Entrar</h2>
+                    <div class="message" id="loginMessage"></div>
                     <div class="form-group">
-                        <label>Tema/Assunto</label>
-                        <input type="text" id="temaRoteiro" placeholder="Ex: Inteligência Artificial em 2026">
+                        <label>Email</label>
+                        <input type="email" id="loginEmail" placeholder="seu@email.com">
                     </div>
-
                     <div class="form-group">
-                        <label>Tom da narração</label>
-                        <select id="tomRoteiro" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px;">
-                            <option value="profissional">Profissional</option>
-                            <option value="casual">Casual</option>
-                            <option value="entusiasmado">Entusiasmado</option>
-                            <option value="critico">Crítico</option>
-                        </select>
+                        <label>Senha</label>
+                        <input type="password" id="loginPassword" placeholder="Sua senha">
                     </div>
-
-                    <button class="button" onclick="generateRoteiro()">Gerar Roteiro + Imagem</button>
-
-                    <div class="loading" id="roteirosLoading">
-                        Gerando seu roteiro... isso pode levar alguns segundos 🎬
-                    </div>
-
-                    <div class="result" id="roteirosResult">
-                        <h4>Seu Roteiro</h4>
-                        <p id="roteirosText"></p>
-                        <h4>Imagem Gerada</h4>
-                        <img id="roteirosImage" class="image-preview" src="" alt="Imagem gerada">
+                    <button class="button" onclick="handleLogin()">Entrar</button>
+                    <div class="toggle-text">
+                        Não tem conta? <a onclick="toggleForms()">Criar conta</a>
                     </div>
                 </div>
 
-                <div class="card">
-                    <h3>Seus Roteiros Recentes</h3>
-                    <div id="roteirosRecentes" style="color: #999; font-size: 14px;">
-                        Carregando...
+                <!-- Signup Form -->
+                <div id="signupForm" class="form-container" style="display: none;">
+                    <h2 style="margin-bottom: 30px; color: #333;">Criar Conta</h2>
+                    <div class="message" id="signupMessage"></div>
+                    <div class="form-group">
+                        <label>Nome</label>
+                        <input type="text" id="signupName" placeholder="Seu nome">
                     </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="signupEmail" placeholder="seu@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Senha</label>
+                        <input type="password" id="signupPassword" placeholder="Crie uma senha">
+                    </div>
+                    <button class="button" onclick="handleSignup()">Criar Conta</button>
+                    <div class="toggle-text">
+                        Já tem conta? <a onclick="toggleForms()">Entrar</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Section -->
+            <div id="dashboardSection" class="dashboard">
+                <div class="dashboard-header">
+                    <div>
+                        <h2>Bem-vindo! 👋</h2>
+                    </div>
+                    <div class="user-info">
+                        <p>Usuário: <strong id="userNameDisplay">-</strong></p>
+                        <button class="logout-btn" onclick="handleLogout()">Sair</button>
+                    </div>
+                </div>
+
+                <!-- Generate Roteiro Section -->
+                <div class="section">
+                    <h3>📝 Gerar Novo Roteiro</h3>
+                    <div class="message" id="roteiroMessage"></div>
+                    <div class="loading" id="roteiroLoading">
+                        <div class="spinner"></div>
+                        <p style="margin-top: 15px; color: #666;">Gerando roteiro com IA...</p>
+                    </div>
+                    <div id="roteiroForm">
+                        <div class="form-group">
+                            <label>Tema do Roteiro</label>
+                            <input type="text" id="temaInput" placeholder="Ex: Como ganhar dinheiro na internet">
+                        </div>
+                        <div class="form-group">
+                            <label>Tom do Vídeo</label>
+                            <select id="tomInput" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px;">
+                                <option value="profissional">Profissional</option>
+                                <option value="casual">Casual</option>
+                                <option value="educativo">Educativo</option>
+                                <option value="humoristico">Humorístico</option>
+                            </select>
+                        </div>
+                        <button class="button" onclick="handleGenerateRoteiro()">Gerar Roteiro com IA</button>
+                    </div>
+                    <div id="roteiroResult" style="display: none; margin-top: 20px; padding: 20px; background: white; border-radius: 8px;">
+                        <h4 style="margin-bottom: 15px;">Roteiro Gerado:</h4>
+                        <p id="roteiroText" style="white-space: pre-wrap; line-height: 1.6; color: #333;"></p>
+                        <img id="roteiroImage" style="width: 100%; max-height: 300px; object-fit: cover; border-radius: 8px; margin-top: 20px;">
+                    </div>
+                </div>
+
+                <!-- Roteiros List Section -->
+                <div class="section">
+                    <h3>📚 Meus Roteiros</h3>
+                    <div id="roteirosList" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px;"></div>
+                    <p id="noRoteiros" style="text-align: center; color: #999; padding: 40px 20px;">Nenhum roteiro criado ainda.</p>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        const API_URL = 'https://criaria.onrender.com/api';
-        let token = localStorage.getItem('token');
+        // Backend URL - CORRIGIDO!
+        const BACKEND_URL = 'https://criaria-1.onrender.com';
 
-        // Check if user is logged in on load
-        window.addEventListener('load', () => {
-            if (token) {
-                switchSection('dashboard');
-                loadUserData();
-            }
-        });
+        let authToken = localStorage.getItem('authToken');
+        let userData = localStorage.getItem('userData');
 
-        function switchSection(section) {
-            document.querySelectorAll('.section').forEach(el => el.classList.remove('active'));
-            document.getElementById(section).classList.add('active');
-            // Clear errors when switching sections
-            document.querySelectorAll('.error').forEach(el => el.classList.remove('show'));
+        if (authToken && userData) {
+            userData = JSON.parse(userData);
+            showDashboard();
         }
 
-        function showError(elementId, message) {
-            const el = document.getElementById(elementId);
-            el.textContent = message;
-            el.classList.add('show');
-            setTimeout(() => el.classList.remove('show'), 5000);
-        }
-
-        function showSuccess(elementId, message) {
-            const el = document.getElementById(elementId);
-            el.textContent = message;
-            el.classList.add('show');
-            setTimeout(() => el.classList.remove('show'), 5000);
-        }
-
-        async function handleLogin() {
-            const email = document.getElementById('loginEmail').value;
-            const password = document.getElementById('loginPassword').value;
-
-            if (!email || !password) {
-                showError('loginError', 'Preencha email e senha');
-                return;
-            }
-
-            try {
-                const response = await fetch(`${API_URL}/auth/login`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email, password })
-                });
-
-                const data = await response.json();
-
-                if (response.ok) {
-                    token = data.token;
-                    localStorage.setItem('token', token);
-                    switchSection('dashboard');
-                    loadUserData();
-                } else {
-                    showError('loginError', data.message || 'Erro ao fazer login');
-                }
-            } catch (error) {
-                showError('loginError', 'Erro ao conectar com o servidor');
-                console.error(error);
-            }
+        function toggleForms() {
+            document.getElementById('loginForm').style.display = document.getElementById('loginForm').style.display === 'none' ? 'block' : 'none';
+            document.getElementById('signupForm').style.display = document.getElementById('signupForm').style.display === 'none' ? 'block' : 'none';
         }
 
         async function handleSignup() {
@@ -475,12 +423,12 @@
             const password = document.getElementById('signupPassword').value;
 
             if (!name || !email || !password) {
-                showError('signupError', 'Preencha todos os campos');
+                showMessage('signupMessage', 'Preencha todos os campos', 'error');
                 return;
             }
 
             try {
-                const response = await fetch(`${API_URL}/auth/signup`, {
+                const response = await fetch(`${BACKEND_URL}/api/auth/signup`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ name, email, password })
@@ -489,83 +437,74 @@
                 const data = await response.json();
 
                 if (response.ok) {
-                    token = data.token;
-                    localStorage.setItem('token', token);
-                    switchSection('dashboard');
-                    loadUserData();
+                    authToken = data.token;
+                    userData = data.user;
+                    localStorage.setItem('authToken', authToken);
+                    localStorage.setItem('userData', JSON.stringify(userData));
+                    showMessage('signupMessage', 'Conta criada com sucesso!', 'success');
+                    setTimeout(showDashboard, 1000);
                 } else {
-                    showError('signupError', data.message || 'Erro ao criar conta');
+                    showMessage('signupMessage', data.message || 'Erro ao criar conta', 'error');
                 }
             } catch (error) {
-                showError('signupError', 'Erro ao conectar com o servidor');
-                console.error(error);
+                console.error('Signup error:', error);
+                showMessage('signupMessage', 'Erro de conexão com servidor', 'error');
             }
         }
 
-        async function loadUserData() {
-            try {
-                const response = await fetch(`${API_URL}/user/profile`, {
-                    headers: { 'Authorization': `Bearer ${token}` }
-                });
+        async function handleLogin() {
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
 
-                if (response.ok) {
-                    const data = await response.json();
-                    document.getElementById('roteirosCount').textContent = data.roteirosCount || 0;
-                    document.getElementById('userPlan').textContent = data.plan || 'Profissional';
-                    loadRoteirosRecentes();
-                }
-            } catch (error) {
-                console.error('Erro ao carregar dados:', error);
-            }
-        }
-
-        async function loadRoteirosRecentes() {
-            try {
-                const response = await fetch(`${API_URL}/roteiros`, {
-                    headers: { 'Authorization': `Bearer ${token}` }
-                });
-
-                if (response.ok) {
-                    const roteiros = await response.json();
-                    const container = document.getElementById('roteirosRecentes');
-
-                    if (roteiros.length === 0) {
-                        container.innerHTML = '<p style="color: #999;">Nenhum roteiro criado ainda</p>';
-                        return;
-                    }
-
-                    container.innerHTML = roteiros.slice(0, 5).map(r => `
-                        <div style="padding: 10px; border-bottom: 1px solid #eee;">
-                            <strong>${r.tema}</strong>
-                            <p style="font-size: 12px; color: #999; margin: 5px 0 0 0;">
-                                ${new Date(r.created_at).toLocaleDateString('pt-BR')}
-                            </p>
-                        </div>
-                    `).join('');
-                }
-            } catch (error) {
-                console.error('Erro ao carregar roteiros:', error);
-            }
-        }
-
-        async function generateRoteiro() {
-            const tema = document.getElementById('temaRoteiro').value;
-            const tom = document.getElementById('tomRoteiro').value;
-
-            if (!tema) {
-                showError('dashboardError', 'Digite um tema para o roteiro');
+            if (!email || !password) {
+                showMessage('loginMessage', 'Preencha email e senha', 'error');
                 return;
             }
 
-            document.getElementById('roteirosLoading').classList.add('show');
-            document.getElementById('roteirosResult').classList.remove('show');
+            try {
+                const response = await fetch(`${BACKEND_URL}/api/auth/login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    authToken = data.token;
+                    userData = data.user;
+                    localStorage.setItem('authToken', authToken);
+                    localStorage.setItem('userData', JSON.stringify(userData));
+                    showMessage('loginMessage', 'Login realizado!', 'success');
+                    setTimeout(showDashboard, 1000);
+                } else {
+                    showMessage('loginMessage', data.message || 'Erro ao fazer login', 'error');
+                }
+            } catch (error) {
+                console.error('Login error:', error);
+                showMessage('loginMessage', 'Erro de conexão com servidor', 'error');
+            }
+        }
+
+        async function handleGenerateRoteiro() {
+            const tema = document.getElementById('temaInput').value;
+            const tom = document.getElementById('tomInput').value;
+
+            if (!tema) {
+                showMessage('roteiroMessage', 'Escreva um tema para o roteiro', 'error');
+                return;
+            }
+
+            document.getElementById('roteiroLoading').classList.add('active');
+            document.getElementById('roteiroForm').style.opacity = '0.5';
+            document.getElementById('roteiroForm').style.pointerEvents = 'none';
 
             try {
-                const response = await fetch(`${API_URL}/roteiros/gerar`, {
+                const response = await fetch(`${BACKEND_URL}/api/roteiros/gerar`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${token}`
+                        'Authorization': `Bearer ${authToken}`
                     },
                     body: JSON.stringify({ tema, tom })
                 });
@@ -573,33 +512,80 @@
                 const data = await response.json();
 
                 if (response.ok) {
-                    document.getElementById('roteirosText').textContent = data.roteiro;
-                    document.getElementById('roteirosImage').src = data.imagem_url;
-                    document.getElementById('roteirosResult').classList.add('show');
-                    showSuccess('dashboardSuccess', 'Roteiro gerado com sucesso! 🎉');
-
-                    // Reset form
-                    document.getElementById('temaRoteiro').value = '';
-
-                    // Reload user data to update count
-                    loadUserData();
+                    document.getElementById('roteiroText').textContent = data.roteiro;
+                    document.getElementById('roteiroImage').src = data.imagem_url;
+                    document.getElementById('roteiroResult').style.display = 'block';
+                    showMessage('roteiroMessage', 'Roteiro gerado com sucesso!', 'success');
+                    loadRoteiros();
                 } else {
-                    showError('dashboardError', data.message || 'Erro ao gerar roteiro');
+                    showMessage('roteiroMessage', data.message || 'Erro ao gerar roteiro', 'error');
                 }
             } catch (error) {
-                showError('dashboardError', 'Erro ao conectar com o servidor');
-                console.error(error);
+                console.error('Generate roteiro error:', error);
+                showMessage('roteiroMessage', 'Erro de conexão com servidor', 'error');
             } finally {
-                document.getElementById('roteirosLoading').classList.remove('show');
+                document.getElementById('roteiroLoading').classList.remove('active');
+                document.getElementById('roteiroForm').style.opacity = '1';
+                document.getElementById('roteiroForm').style.pointerEvents = 'auto';
             }
         }
 
+        async function loadRoteiros() {
+            try {
+                const response = await fetch(`${BACKEND_URL}/api/roteiros`, {
+                    headers: { 'Authorization': `Bearer ${authToken}` }
+                });
+
+                if (response.ok) {
+                    const roteiros = await response.json();
+                    const container = document.getElementById('roteirosList');
+                    const noRoteiros = document.getElementById('noRoteiros');
+
+                    if (roteiros.length === 0) {
+                        noRoteiros.style.display = 'block';
+                        container.innerHTML = '';
+                    } else {
+                        noRoteiros.style.display = 'none';
+                        container.innerHTML = roteiros.map(r => `
+                            <div class="roteiro-card">
+                                <img src="${r.imagemUrl}" alt="${r.tema}">
+                                <h4>${r.tema}</h4>
+                                <p>${r.roteiro.substring(0, 150)}...</p>
+                                <small style="color: #999;">Tom: ${r.tom}</small>
+                            </div>
+                        `).join('');
+                    }
+                }
+            } catch (error) {
+                console.error('Load roteiros error:', error);
+            }
+        }
+
+        function showDashboard() {
+            document.getElementById('authSection').classList.remove('active');
+            document.getElementById('dashboardSection').classList.add('active');
+            document.getElementById('userNameDisplay').textContent = userData.name;
+            loadRoteiros();
+        }
+
         function handleLogout() {
-            localStorage.removeItem('token');
-            token = null;
-            document.getElementById('loginEmail').value = '';
-            document.getElementById('loginPassword').value = '';
-            switchSection('login');
+            localStorage.removeItem('authToken');
+            localStorage.removeItem('userData');
+            authToken = null;
+            userData = null;
+            document.getElementById('authSection').classList.add('active');
+            document.getElementById('dashboardSection').classList.remove('active');
+            document.getElementById('loginForm').style.display = 'block';
+            document.getElementById('signupForm').style.display = 'none';
+        }
+
+        function showMessage(elementId, message, type) {
+            const element = document.getElementById(elementId);
+            element.textContent = message;
+            element.className = `message active ${type}`;
+            setTimeout(() => {
+                element.classList.remove('active');
+            }, 5000);
         }
     </script>
 </body>
